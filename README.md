@@ -33,16 +33,23 @@ Publish the website in the given URL.
 # views.py
 
 from django.shortcuts import render
+
 def calculate_volume(request):
     result = None
+
     if request.method == 'POST':
+
         try:
+
             length = float(request.POST.get('length', 0))
             width = float(request.POST.get('width', 0))
             height = float(request.POST.get('height', 0))
+
             result = length * width * height
         except ValueError:
+
             result = "Invalid input. Please enter valid numbers."
+
     return render(request, 'cuboid_volume/index.html', {'result': result}) 
  ```
 ```
@@ -50,8 +57,11 @@ def calculate_volume(request):
 
 from django.urls import path
 from . import views
+
 urlpatterns = [
+
     path('', views.calculate_volume, name='calculate_volume'),
+
 ]
 ```
  ```
