@@ -29,10 +29,10 @@ Create a HTML file to implement form based input and output.
 Publish the website in the given URL.
 
 # PROGRAM :
- # views.py
-  ~~~
-from django.shortcuts import render
+  ```
+# views.py
 
+from django.shortcuts import render
 def calculate_volume(request):
     result = None
     if request.method == 'POST':
@@ -43,20 +43,20 @@ def calculate_volume(request):
             result = length * width * height
         except ValueError:
             result = "Invalid input. Please enter valid numbers."
-    
     return render(request, 'cuboid_volume/index.html', {'result': result}) 
- ~~~
+ ```
+```
  # urls.py
- ~~~
+
 from django.urls import path
 from . import views
-
 urlpatterns = [
     path('', views.calculate_volume, name='calculate_volume'),
 ]
-~~~
- # Html File(index.html)
- ~~~
+```
+ ```
+# Html File(index.html)
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -154,7 +154,7 @@ urlpatterns = [
     </div>
 </body>
 </html>
-~~~
+```
 # SERVER SIDE PROCESSING:
 
 ![Screenshot 2024-12-04 142828](https://github.com/user-attachments/assets/d11004b2-7c4e-45b5-9470-505f3d4e6d65)
